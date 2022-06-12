@@ -1,5 +1,4 @@
 
-import { ArrowDownIcon, ArrowUpIcon } from '@heroicons/react/solid'
 import { useState } from 'react'
 
 
@@ -12,13 +11,29 @@ function Table({
     page = 0,
     pageCount = 0,
     pageSize = 0,
-    onChange = () => {}
+    canCreate = true,
+    onChange = () => {},
+    onDelete = () => {},
+    onEdit = () => {},
+    openForm = () => {}
 }) {
 
 
 
     return (
-        <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+        <div class="mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
+        
+        {
+            canCreate && (
+                <button 
+                    className="float-right mb-5 appearance-none appearance-none block   bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                    onClick={() => openForm()}
+                >
+                    Ajoutez un tag
+                </button>
+            )
+        }
+
         <div class="inline-block min-w-full shadow rounded-lg overflow-hidden">
             <table class="min-w-full leading-normal">
                 <thead>
@@ -27,14 +42,8 @@ function Table({
                             columns.map(x => (
                                 <th
                                     class="cursor-pointer px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider"
-                                    // onClick={x.sortable ? () => handleSort(x.value) : undefined}
                                 >
                                     {x.name}
-                                    {/* {
-                                        x.sortable && x.value == sortBy && (
-                                                sort == "asc" ? <ArrowUpIcon className='w-2'/> :  <ArrowDownIcon className='w-2'/>                                            
-                                        )
-                                    } */}
                                 </th>
                             ))
                         }
@@ -44,13 +53,42 @@ function Table({
                     {
                         data.map(x => (
                             <tr>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">
-                                        {x.id}
-                                    </p>
-                                </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <p class="text-gray-900 whitespace-no-wrap">{x.attributes && x.attributes.Name}</p>
+                                {
+                                    columns.map(c => {
+                                        if (c.is_action) {
+                                            return (
+                                                <td class="flex justify-around px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <button 
+                                                        className=" appearance-none appearance-none block   bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded"
+                                                        onClick={() => onEdit(x)}
+                                                    >
+                                                        Edit
+                                                    </button>
+                                                    <button 
+                                                        className=" appearance-none appearance-none block   bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                                                        onClick={() => onDelete(x.id)}
+                                                    >
+                                                        Delete
+                                                    </button>
+                                                    
+                                                </td>
+                                            )
+
+                                        } else {
+                                            return (
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <p class="text-gray-900 whitespace-no-wrap">
+                                                        {x[c.value] || x.attributes[c.value]}
+                                                    </p>
+                                                </td>
+                                            )
+                                        }
+
+                                    })
+                                }
+
+                                {/* <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <p class="text-gray-900 whitespace-no-wrap">{x.attributes && x.attributes.name}</p>
                                 </td>
                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p class="text-gray-900 whitespace-no-wrap">
@@ -62,14 +100,21 @@ function Table({
                                         {x.attributes && x.attributes.updatedAt}
                                     </p>
                                 </td>
-                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <span
-                                        class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                        <span aria-hidden
-                                            class="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                        <span class="relative">edit</span>
-                                    </span>
-                                </td>
+                                <td class="flex justify-around px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <button 
+                                        className=" appearance-none appearance-none block   bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded"
+                                        onClick={() => onEdit(x)}
+                                    >
+                                        Edit
+                                    </button>
+                                    <button 
+                                        className=" appearance-none appearance-none block   bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded"
+                                        onClick={() => onDelete(x.id)}
+                                    >
+                                        Delete
+                                    </button>
+                                    
+                                </td> */}
                             </tr>
                         ))
                     }
