@@ -1,10 +1,12 @@
 
+import moment from 'moment'
 import { useState } from 'react'
 
 
 
 
 function Table({
+    itemName = "",
     columns = [],
     data = [],
     total = 0,
@@ -29,7 +31,7 @@ function Table({
                     className="float-right mb-5 appearance-none appearance-none block   bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                     onClick={() => openForm()}
                 >
-                    Ajoutez un tag
+                    Ajoutez un {itemName}
                 </button>
             )
         }
@@ -74,6 +76,14 @@ function Table({
                                                 </td>
                                             )
 
+                                        } else if (c.is_date) {
+                                            return (
+                                                <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                    <p class="text-gray-900 whitespace-no-wrap">
+                                                        { moment(x[c.value] || x.attributes[c.value]).format("YYYY-MM-DD HH:MM:SS") }
+                                                    </p>
+                                                </td>
+                                            )
                                         } else {
                                             return (
                                                 <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">

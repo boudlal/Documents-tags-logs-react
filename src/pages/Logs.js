@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react"
 import Alert from "../components/Alert"
 import Filter from "../components/Filter"
-import FormModal from "../components/FormModal"
 import Table from "../components/Table"
 import { getLogs } from "../utils/api"
 
@@ -9,7 +8,7 @@ const COLUMNS = [
     {name: "ID", value: "id", sortable: true},
     {name: "Entity Name", value: "entityName", sortable: true},
     {name: "Action", value: "action", sortable: true},
-    {name: "Date de log", value: "loggedAt", sortable: true},
+    {name: "Date de log", value: "loggedAt", is_date: true, sortable: true},
 ]
 
 function Logs() {

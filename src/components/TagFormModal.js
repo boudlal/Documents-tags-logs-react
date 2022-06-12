@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-
-
 function FormModal({
     onSubmit = () => {},
     item = {name: null, id: null},

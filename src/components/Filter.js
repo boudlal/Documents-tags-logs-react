@@ -20,9 +20,9 @@ function Filter({
         >
             <div className="flex flex-wrap -mx-3 mb-8 mt-8">
 
-                <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
                     <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                        Filtrez Par
+                        Filtrer Par
                     </label>
                 <div className="relative">
                     <select 
@@ -43,7 +43,7 @@ function Filter({
                     </div>
                 </div>
                 </div>
-                <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                     Valeur
                 </label>
@@ -56,14 +56,9 @@ function Filter({
                     />
                 </div>
 
-            </div>
-
-
-            <div className="flex flex-wrap -mx-3 mb-8">
-
-                <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
                     <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
-                        Sortez Par
+                        Sorter Par
                     </label>
                     <div className="relative">
                         <select 
@@ -84,7 +79,7 @@ function Filter({
                         </div>
                     </div>
                 </div>
-                <div className="w-full md:w-1/4 px-3 mb-6 md:mb-0">
+                <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
                 <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
                     Ordre
                 </label>
@@ -108,11 +103,7 @@ function Filter({
                     </div>
                 </div>
 
-            </div>
-
-            <div className="flex flex-wrap -mx-3 mb-2">
-
-                <div className="w-full flex items-end md:w-1/4 px-3 mb-6 md:mb-0">
+                <div className="w-full flex items-end md:w-1/5 px-3 mb-6 md:mb-0">
                     <button 
                         className=" appearance-none appearance-none block   bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         onClick={() => onChange(searchBy, query, sortBy, sort)}
@@ -120,7 +111,9 @@ function Filter({
                         Search
                     </button>
                 </div>
+
             </div>
+
         </div>
 
     )
