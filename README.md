@@ -1,7 +1,9 @@
 ## Installation
 
-1- Exécuter `yarn install`
+1- Exécutez `yarn install`
 
-2- Exécuter le serveur `https://github.com/boudlal/Documents-tags-logs-strapi`
+2- Démarez le serveur `https://github.com/boudlal/Documents-tags-logs-strapi`
 
-3- Changer le lien de serveur dans `/src/utils/api.js`, la valeur par défaut est `http://localhost:1337/api`
+3- Changez le lien de serveur dans `/src/utils/api.js`, la valeur par défaut est `http://localhost:1337/api`
+
+4- Exécutez `npm run start`
