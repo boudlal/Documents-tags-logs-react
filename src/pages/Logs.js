@@ -6,7 +6,7 @@ import { getLogs } from "../utils/api"
 
 const COLUMNS = [
     {name: "ID", value: "id", sortable: true},
-    {name: "Entity Name", value: "entityName", sortable: true},
+    {name: "Nom de l'entité", value: "entityName", sortable: true},
     {name: "Action", value: "action", sortable: true},
     {name: "Date de log", value: "loggedAt", is_date: true, sortable: true},
 ]
@@ -39,14 +39,14 @@ function Logs() {
     }, [])
 
     return (
-        <div class="container mx-auto px-4 sm:px-8">
-            <div class="py-8">
+        <div className="container mx-auto px-4 sm:px-8">
+            <div className="py-8">
                 <div>
-                    <h2 class="text-2xl font-semibold leading-tight">Logs</h2>
+                    <h2 className="text-2xl font-semibold leading-tight">Logs</h2>
                 </div>
 
                 <Filter 
-                    values={[{name: "Nom de l’entité", value: "entityName"}, {name: "Action", value: "action"}]}
+                    values={[{name: "Nom de l'entité", value: "entityName"}, {name: "Action", value: "action"}]}
                     columns={COLUMNS}
                     onChange={getData}
                 />

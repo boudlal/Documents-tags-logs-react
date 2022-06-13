@@ -80,10 +80,10 @@ function Tags() {
     }, [])
 
     return (
-        <div class="container mx-auto px-4 sm:px-8">
-            <div class="py-8">
+        <div className="container mx-auto px-4 sm:px-8">
+            <div className="py-8">
                 <div>
-                    <h2 class="text-2xl font-semibold leading-tight">Tags</h2>
+                    <h2 className="text-2xl font-semibold leading-tight">Tags</h2>
                 </div>
 
                 <Filter 

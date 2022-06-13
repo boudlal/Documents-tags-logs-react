@@ -21,7 +21,7 @@ function Filter({
             <div className="flex flex-wrap -mx-3 mb-8 mt-8">
 
                 <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
                         Filtrer Par
                     </label>
                 <div className="relative">
@@ -33,8 +33,8 @@ function Filter({
                         }}
                     >
                         {
-                            values.map(x => (
-                                <option value={x.value}>{x.name}</option>
+                            values.map((x, key) => (
+                                <option value={x.value} key={key}>{x.name}</option>
                             ))
                         }
                     </select>
@@ -44,7 +44,7 @@ function Filter({
                 </div>
                 </div>
                 <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-zip">
                     Valeur
                 </label>
                 <input 
@@ -57,7 +57,7 @@ function Filter({
                 </div>
 
                 <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
-                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
+                    <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-state">
                         Sorter Par
                     </label>
                     <div className="relative">
@@ -69,8 +69,8 @@ function Filter({
                             }}
                         >
                             {
-                                columns.filter(x => x.sortable).map(x => (
-                                    <option value={x.value}>{x.name}</option>
+                                columns.filter(x => x.sortable).map((x, key) => (
+                                    <option value={x.value} key={key}>{x.name}</option>
                                 ))
                             }
                         </select>
@@ -80,7 +80,7 @@ function Filter({
                     </div>
                 </div>
                 <div className="w-full md:w-1/5 px-3 mb-6 md:mb-0">
-                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-zip">
+                <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" htmlFor="grid-zip">
                     Ordre
                 </label>
                     <div className="relative">
@@ -92,8 +92,8 @@ function Filter({
                             }}
                         >
                             {
-                                SORT_OPTIONS.map(x => (
-                                    <option value={x.value}>{x.name}</option>
+                                SORT_OPTIONS.map((x, key) => (
+                                    <option value={x.value} key={key}>{x.name}</option>
                                 ))
                             }
                         </select>
@@ -108,7 +108,7 @@ function Filter({
                         className=" appearance-none appearance-none block   bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                         onClick={() => onChange(searchBy, query, sortBy, sort)}
                     >
-                        Search
+                        Rechercher
                     </button>
                 </div>
 
